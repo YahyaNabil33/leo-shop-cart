@@ -1,0 +1,64 @@
+/* Task 5: styles for the live cart and wishlist */
+
+/* Badge counters on the header icons */
+.header-icon { position: relative; display: inline-block; }
+.count-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--bs-primary);
+  color: #fff;
+  font: 700 11px/18px sans-serif;
+  text-align: center;
+}
+.count-badge.bump { animation: bump .35s ease; }
+@keyframes bump { 40% { transform: scale(1.35); } }
+
+/* Heart on a product: stays visible and filled when saved */
+.product-item .btn-wishlist { cursor: pointer; }
+.product-item .btn-wishlist.is-active {
+  opacity: 1;
+  background: var(--bs-primary);
+  color: #fff;
+}
+
+/* Cart and wishlist lines */
+.cart-thumb { width: 64px; height: 64px; object-fit: cover; border-radius: 6px; }
+.qty-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 999px;
+}
+.qty-control button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  line-height: 1;
+}
+.qty-control button:hover { background: rgb(0 0 0 / .06); }
+.qty-control span { min-width: 22px; text-align: center; font-weight: 600; }
+
+/* Pop-up message */
+#cart-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 2000;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  pointer-events: none;
+  transition: opacity .25s, transform .25s;
+}
+#cart-toast.show { opacity: 1; transform: translate(-50%, 0); }
